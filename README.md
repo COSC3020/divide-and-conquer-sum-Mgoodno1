@@ -25,3 +25,26 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+
+Runtime Analysis of the Divide and Conquer Sort Algorithm:
+
+The final runtime complexity of the implemented divide and conquer sorting algorithm is:
+T(n) = 3T(n/3) + (n)
+T(n) = 3(3T(n/9) + (n/3)) + (n)
+T(n) = 3^2(T)(n/9) + (n) + (n)
+T(n) = 3^3(T)(n/27) + (n) + (n) + (n)
+T(n) = 3^3(T)(n/27) + 3n
+T(n) = 3^k(T)(n/3^k) + k * (n)
+T(n) = 3^log3(n) (T)(1) + (n * log3n)
+T(n) = n(c) + nlog3(n)
+T(n) = O(n log n)
+
+Reasoning:
+The recurrenc is T(n) = 3T(n/3) + (n), this is because T(n) represents
+runnng time for an input of size n. 3T(n/3) represents the recursive calls
+on the three subarrays of size n/3, and (n) represents the work being done at each level. The
+total work performed is proportional to n as it requires linear work. By expanding the 
+recurrence, we can observe that the depth of recursion is proportional to log3 (n). This is
+because the problem size is reduced by 3 at each recursive step. Thus, the total work being
+n log3 n which simplifies to n log n.
