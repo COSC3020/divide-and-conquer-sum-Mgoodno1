@@ -35,9 +35,15 @@ T(n) = 3(3T(n/9) + (n/3)) + (n)
 T(n) = 3^2(T)(n/9) + (n) + (n)
 T(n) = 3^3(T)(n/27) + (n) + (n) + (n)
 T(n) = 3^3(T)(n/27) + 3n
-T(n) = 3^k(T)(n/3^k) + k * (n)
-T(n) = 3^log3(n) (T)(1) + (n * log3n)
-T(n) = n(c) + nlog3(n)
+
+T(n) = 3^k(T)(n/3^k) + kn (pattern)
+n/3^k = 1 (stopping condition)
+n = 3^k
+log3(n) = k
+
+T(n) = 3^log3(n) T(1) + n * log3(n)
+T(n) = n * T(1) + n * log3(n)
+T(n) = n(c) + n * log3(n) (T(1) = c, where c is a constant)
 T(n) = O(n log n)
 
 Reasoning:
