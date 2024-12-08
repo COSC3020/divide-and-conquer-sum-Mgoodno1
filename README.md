@@ -47,10 +47,15 @@ T(n) = n(c) + n * log3(n) (T(1) = c, where c is a constant)
 T(n) = O(n log n)
 
 Reasoning:
-The recurrenc is T(n) = 3T(n/3) + (n), this is because T(n) represents
+The recurrenc is T(n) = 3T(n/3) + O(n), this is because T(n) represents
 runnng time for an input of size n. 3T(n/3) represents the recursive calls
-on the three subarrays of size n/3, and (n) represents the work being done at each level. The
+on the three subarrays of size n/3, and O(n) represents the work being done at each level. The work at 
+each level involves summing all n elements of the array across the three subarrays, which takes linear time. 
+This is why the work at each level is O(n), reflecting the summing process for the entire array. The
 total work performed is proportional to n as it requires linear work. By expanding the 
 recurrence, we can observe that the depth of recursion is proportional to log3 (n). This is
 because the problem size is reduced by 3 at each recursive step. Thus, the total work being
 n log3 n which simplifies to n log n.
+
+
+
