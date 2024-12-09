@@ -32,19 +32,22 @@ Runtime Analysis of the Divide and Conquer Sort Algorithm:
 The final runtime complexity of the implemented divide and conquer sorting algorithm is:
 T(n) = 3T(n/3) + (n)
 T(n) = 3(3T(n/9) + (n/3)) + (n)
-T(n) = 3^2(T)(n/9) + (n) + (n)
-T(n) = 3^3(T)(n/27) + (n) + (n) + (n)
-T(n) = 3^3(T)(n/27) + 3n
+T(n) = 3^2(T)(n/9) + 4(n)
+T(n) = 9(3T(n/27) + n/9) + 4(n) 
+T(n) = 27(T)(n/27) + 13n
+....
+T(n) = 3^i (T)(n/3^i) + (3^i - 1)n/2
 
-T(n) = 3^k(T)(n/3^k) + kn (pattern)
-n/3^k = 1 (stopping condition)
-n = 3^k
-log3(n) = k
+n/3^i = 1  => i = log3(n)
 
-T(n) = 3^log3(n) T(1) + n * log3(n)
-T(n) = n * T(1) + n * log3(n)
-T(n) = n(c) + n * log3(n) (T(1) = c, where c is a constant)
+T(n) = 3^log3(n) T(1) + nlog3(n)
+T(n) = n * O(1) + nlog3(n)
+T(n) = O(n) + O(n log3(n))
+
+O(n log3(n)) dominates O(n), but can be rewritten as:
 T(n) = O(n log n)
+
+
 
 Reasoning:
 The recurrenc is T(n) = 3T(n/3) + O(n), this is because T(n) represents
