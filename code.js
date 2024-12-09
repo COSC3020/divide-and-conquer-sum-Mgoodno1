@@ -1,5 +1,5 @@
 /*Sources Used: I based some of my code off of some the content that we covered
-in class (on the slides) as reference*/
+in class (on the slides) as reference. As well as using slides to get notation correct and using ChatGPT to understand some concepts which was mainly used for the recurrence notation trying to understand the pattern */
 
 function divideAndConquerSum(a) {
     if (a.length <= 1) {
