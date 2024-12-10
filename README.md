@@ -53,7 +53,7 @@ Reasoning:
 The recurrenc is T(n) = 3T(n/3) + O(n), this is because T(n) represents
 runnng time for an input of size n. 3T(n/3) represents the recursive calls
 on the three subarrays of size n/3, and O(n) represents the work being done at each level. Specifically
-the work at each level involves adding the results of the sums from the three subarrays, which takes linear time. We are
+the work at each level involves combining the results of the sums from the three subarrays, which takes linear time due to processing all n elements. We are
 not summing all the elements of the array at each level, rather we are merging the sumes of the three subarrays. This is why the work at each level is O(n), 
 reflecting the merging process for the entire array. The total work performed is proportional to n as it requires linear work.  By expanding the 
 recurrence, we can observe that the depth of recursion is proportional to log3 (n). This is
