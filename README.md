@@ -25,3 +25,39 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+
+Runtime Analysis of the Divide and Conquer Sort Algorithm:
+
+The final runtime complexity of the implemented divide and conquer sorting algorithm is:
+T(n) = 3T(n/3) + (n)
+T(n) = 3(3T(n/9) + (n/3)) + (n)
+T(n) = 3^2(T)(n/9) + 4(n)
+T(n) = 9(3T(n/27) + n/9) + 4(n) 
+T(n) = 27(T)(n/27) + 13n
+....
+T(n) = 3^i (T)(n/3^i) + (3^i - 1)n/2
+
+n/3^i = 1  => i = log3(n)
+
+T(n) = 3^log3(n) T(1) + nlog3(n)
+T(n) = nT(1) + nlog3(n) 
+T(n) = n + n log3(n)
+
+O(n log3(n)) dominates O(n), but can be rewritten as:
+T(n) = n + n log3(n) ∈ O(n log n)
+
+
+
+Reasoning:
+The recurrenc is T(n) = 3T(n/3) + O(n), this is because T(n) represents
+runnng time for an input of size n. 3T(n/3) represents the recursive calls
+on the three subarrays of size n/3, and O(n) represents the work being done at each level. Specifically this is the work that is being done at each level of recursion due to the processing of n elements. Now once the sum of the three subarrays is computed, we need to combine the results which is the summing process which involves adding up the results of the three subarrays which is an constant time operation (O(1)). We are not summing all the elements of the array at each level, rather we are merging the sumes of the three subarrays. This is why the work at each level is O(n), 
+reflecting the merging process for the entire array. The total work performed is proportional to n as it requires linear work.  By expanding the 
+recurrence, we can observe that the depth of recursion is proportional to log3 (n). This is
+because the problem size is reduced by 3 at each recursive step. Thus, the total work being
+n log3 n which simplifies to n log n.
+
+# Plagarism Statement
+All exercises must contain the following statement: “I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.”
+
