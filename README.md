@@ -52,13 +52,11 @@ T(n) = n + n log3(n) ∈ O(n log n)
 Reasoning:
 The recurrenc is T(n) = 3T(n/3) + O(n), this is because T(n) represents
 runnng time for an input of size n. 3T(n/3) represents the recursive calls
-on the three subarrays of size n/3, and O(n) represents the work being done at each level. Specifically once the the three subarrays is computed, we need to combine the results by adding them together, the summing process involves adding up the results of the three subarrays. We are not summing all the elements of the array at each level, rather we are merging the sumes of the three subarrays. This is why the work at each level is O(n), 
+on the three subarrays of size n/3, and O(n) represents the work being done at each level. Specifically this is the work that is being done at each level of recursion due to the processing of n elements. Now once the sum of the three subarrays is computed, we need to combine the results which is the summing process which involves adding up the results of the three subarrays which is an constant time operation (O(1)). We are not summing all the elements of the array at each level, rather we are merging the sumes of the three subarrays. This is why the work at each level is O(n), 
 reflecting the merging process for the entire array. The total work performed is proportional to n as it requires linear work.  By expanding the 
 recurrence, we can observe that the depth of recursion is proportional to log3 (n). This is
 because the problem size is reduced by 3 at each recursive step. Thus, the total work being
 n log3 n which simplifies to n log n.
-
-Once the sum of the three subarrays is computed, we need to combine the results by adding them together. This summing process involves adding up the results of the three subarrays.
 
 # Plagarism Statement
 All exercises must contain the following statement: “I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.”
